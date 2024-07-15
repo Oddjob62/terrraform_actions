@@ -14,6 +14,9 @@ inputs:
   pr_id:
     description: 'Pull request ID'
     required: true
+  artifact_token:
+    description : 'Artifcat access token'
+    required: true
 
 runs:
   using: "composite"
@@ -37,6 +40,7 @@ runs:
       with:
         name: ${{ inputs.pr_id }}-tf-plan
         path: ${{ inputs.terraform_directory }}/tfplan
+        github-token: ${{ inputs.artifact_token }}
 
     - name: Terraform Apply
       id: apply
