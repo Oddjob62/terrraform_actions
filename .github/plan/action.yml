@@ -56,9 +56,11 @@ runs:
         body: |
          <details open>
          <summary>Terraform Plan:</summary>
+         
          ```
          ${{ steps.plan.outputs.plan }}
          ```
+         
          </details>
 
          Plan saved to GH artifacts.
