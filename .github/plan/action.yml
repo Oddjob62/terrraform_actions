@@ -55,13 +55,10 @@ runs:
         issue-number: ${{ inputs.pr_id }}
         body: |
          <details open>
-         <summary>Hello</summary>
-         World!
-         </details>
-         Terraform Plan:
-
+         <summary>Terraform Plan:</summary>
          ```
          ${{ steps.plan.outputs.plan }}
          ```
+         </details>
 
          Plan saved to GH artifacts.
