@@ -3,7 +3,7 @@ name: Terraform Plan
 on:
   pull_request:
     branches:
-     - terraform
+     - terraform/**
 
 env:
   TERRAFORM_VERSION: "1.2.9"

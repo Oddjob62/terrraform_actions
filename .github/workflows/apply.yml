@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - terraform    
+      - terraform/**
 
 env:
   TF_SA: github-deployments@sam-gallagher-tutorials-001.iam.gserviceaccount.com
