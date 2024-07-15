@@ -30,6 +30,7 @@ jobs:
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
 
           echo $GITHUB_REF
+          echo "PR Event number ${{ github.event.number }}"
           echo $PR_NUMBER
 
       - name: Terraform Apply
