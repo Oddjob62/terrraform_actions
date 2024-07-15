@@ -55,7 +55,7 @@ runs:
         issue-number: ${{ inputs.pr_id }}
         body: |
          <details>
-         <summary>Terraform Plan:</summary>
+         <summary>Terraform Plan</summary>
          
          ```
          ${{ steps.plan.outputs.plan }}
