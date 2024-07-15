@@ -54,7 +54,7 @@ runs:
         token: ${{ inputs.github_token }}
         issue-number: ${{ inputs.pr_id }}
         body: |
-         <details open>
+         <details>
          <summary>Terraform Plan:</summary>
          
          ```
