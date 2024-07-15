@@ -44,6 +44,7 @@ runs:
       id: save-artifact
       uses: actions/upload-artifact@v3
       with:
+        retention-days: 2
         name: ${{ inputs.pr_id }}-tf-plan
         path: ${{ inputs.terraform_directory }}/tfplan
 
