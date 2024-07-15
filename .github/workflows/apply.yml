@@ -35,6 +35,7 @@ jobs:
           echo "PR Event number ${{ github.event.number }}"
           echo $PR_NUMBER
           echo "Workflow Run ID: ${{ github.event.workflow_run.id }}"
+          echo "Run ID: ${{ github.run_id }}""
 
       - name: Terraform Apply
         uses: ./.github/apply
