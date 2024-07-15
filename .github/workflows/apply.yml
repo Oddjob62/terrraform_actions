@@ -3,7 +3,7 @@ name: Terraform Apply
 on:
   pull_request:
     types: [closed]
-    branches:
+    paths:
       - terraform/**
 
 env:
