@@ -54,10 +54,14 @@ runs:
         token: ${{ inputs.github_token }}
         issue-number: ${{ inputs.pr_id }}
         body: |
-          Terraform Plan:
+         <details open>
+         <summary>Hello</summary>
+         World!
+         </details>
+         Terraform Plan:
 
-          ```
-          ${{ steps.plan.outputs.plan }}
-          ```
+         ```
+         ${{ steps.plan.outputs.plan }}
+         ```
 
-          Plan saved to GH artifacts.
+         Plan saved to GH artifacts.
