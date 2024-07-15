@@ -47,7 +47,6 @@ runs:
         terraform apply -input=false -no-color tfplan >> $GITHUB_OUTPUT
         echo 'EOF' >> $GITHUB_OUTPUT
 
-
     - name: Comment Apply
       id: comment-apply
       uses: peter-evans/create-or-update-comment@v2
