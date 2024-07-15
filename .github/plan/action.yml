@@ -42,7 +42,7 @@ runs:
 
     - name: Save Artifact
       id: save-artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4.1.8
       with:
         retention-days: 2
         name: ${{ inputs.pr_id }}-tf-plan
