@@ -41,7 +41,6 @@ runs:
         name: ${{ inputs.pr_id }}-tf-plan
         path: ${{ inputs.terraform_directory }}/tfplan
         github-token: ${{ inputs.artifact_token }}
-        run-id: 9953057012
 
     - name: Terraform Apply
       id: apply
