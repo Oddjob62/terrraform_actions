@@ -31,6 +31,13 @@ runs:
       run: |
         terraform init
 
+    - name: Terraform fmt
+      id: fmt
+      working-directory: ${{ inputs.terraform_directory }}
+      shell: bash
+      run: |
+        terraform fmt -check=true -recursive
+
     - name: Terraform Plan
       id: plan
       working-directory: ${{ inputs.terraform_directory }}

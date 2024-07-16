@@ -12,7 +12,6 @@ on:
 env:
   TERRAFORM_VERSION: "1.2.9"
   TF_IN_AUTOMATION: "True"
-  ACCESS_TOKEN: ${{ secrets.MYPAT }}
 
 jobs:
   terraform_apply:
@@ -45,6 +44,5 @@ jobs:
           terraform_directory: "terraform"
           terraform_version: ${{ env.TERRAFORM_VERSION }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          artifact_token: ${{ secrets.MYPAT }}
           pr_id: ${{ steps.pr-id.outputs.PR_NUMBER }}
           run_id: ${{ steps.pr-id.outputs.RUN_ID }}
