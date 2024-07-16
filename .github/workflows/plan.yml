@@ -19,13 +19,9 @@ jobs:
       - name: Get PR ID
         id: pr-id
         shell: bash
-        env:
-          GITHUB_REF: ${{ inputs.github_ref }}
         run: |
-          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          PR_NUMBER=${{ github.event.number }}
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
-
-          echo $GITHUB_REF
           echo $PR_NUMBER
 
       - name: Terraform Plan

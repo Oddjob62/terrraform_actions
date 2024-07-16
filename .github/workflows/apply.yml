@@ -24,24 +24,21 @@ jobs:
       - name: Get PR ID
         id: pr-id
         shell: bash
-        env:
-          GITHUB_REF: ${{ inputs.github_ref }}
         run: |
-          # PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           PR_NUMBER=${{ github.event.number }}
+          HEAD_SHA=$(gh api repos/Oddjob62/terrraform_actions/pulls/$PULLNUMBER | jq -r '.head.sha')
+          RUN_ID=$(gh api repos/Oddjob62/terrraform_actions/commits/$HEAD_SHA/check-runs | jq -r '.check_runs | .[] | select(.name | contains("plan")) | .id ')
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
-
-          echo $GITHUB_REF
-          echo "PR Event number ${{ github.event.number }}"
-          echo $PR_NUMBER
-          echo "Workflow Run ID: ${{ github.event.workflow_run.id }}"
-          echo "Run ID: ${{ github.run_id }}"W
+          echo "RUN_ID=$RUN_ID" >> $GITHUB_OUTPUT
+          echo "PR Number: $PR_NUMBER"
+          echo "Run ID: $RUN_ID"
 
       - name: Terraform Apply
         uses: ./.github/apply
         with:
           terraform_directory: "terraform"
           terraform_version: ${{ env.TERRAFORM_VERSION }}
-          github_token: ${{ secrets.GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           artifact_token: ${{ secrets.MYPAT }}
           pr_id: ${{ steps.pr-id.outputs.PR_NUMBER }}
+          run_id: ${{ steps.pr-id.outputs.RUN_ID }}

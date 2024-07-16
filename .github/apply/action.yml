@@ -14,6 +14,9 @@ inputs:
   pr_id:
     description: 'Pull request ID'
     required: true
+  run_id:
+    description: 'Plan run ID'
+    required: true
   artifact_token:
     description : 'Artifact access token'
     required: true
@@ -41,7 +44,7 @@ runs:
         name: ${{ inputs.pr_id }}-tf-plan
         path: ${{ inputs.terraform_directory }}/tfplan
         github-token: ${{ inputs.artifact_token }}
-        run-id: 9953614775
+        run-id: ${{ inputs.run_id }}
 
     - name: Terraform Apply
       id: apply
