@@ -12,7 +12,6 @@ env:
 jobs:
   terraform_plan:
     runs-on: ubuntu-latest
-    if: github.event.review.state != 'approved'
     steps:
       - uses: actions/checkout@v3
 
