@@ -26,7 +26,7 @@ jobs:
         shell: bash
         run: |
           PR_NUMBER=${{ github.event.number }}
-          HEAD_SHA=$(gh api repos/Oddjob62/terrraform_actions/pulls/$PULLNUMBER | jq -r '.head.sha')
+          HEAD_SHA=$(gh api repos/Oddjob62/terrraform_actions/pulls/$PR_NUMBER | jq -r '.head.sha')
           RUN_ID=$(gh api repos/Oddjob62/terrraform_actions/commits/$HEAD_SHA/check-runs | jq -r '.check_runs | .[] | select(.name | contains("plan")) | .id ')
           echo "PR_NUMBER=$PR_NUMBER" >> $GITHUB_OUTPUT
           echo "RUN_ID=$RUN_ID" >> $GITHUB_OUTPUT
